@@ -15,6 +15,15 @@ use Psr\Http\Message\ResponseInterface;
 class Unsplash extends AbstractProvider
 {
     /**
+     * Used for public scoped requests
+     * @return string
+     */
+    public function getClientId()
+    {
+        return $this->clientId;
+    }
+
+    /**
      * @return string
      */
     public function getBaseAuthorizationUrl()

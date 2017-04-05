@@ -14,31 +14,57 @@ class UnsplashResourceOwner implements ResourceOwnerInterface
      */
     private $response;
 
+    /**
+     * @param array $response
+     */
     public function __construct(array $response)
     {
         $this->response = $response;
     }
 
+    /**
+     * @return mixed
+     */
     public function getId()
     {
         return $this->getValueByKey($this->response, 'id');
     }
 
+    /**
+     * @return mixed
+     */
+    public function getUsername()
+    {
+        return $this->getValueByKey($this->response, 'username');
+    }
+
+    /**
+     * @return mixed
+     */
     public function getName()
     {
-        return $this->getFirstname() . " " . $this->getLastname();
+        return $this->getValueByKey($this->response, 'name');
     }
 
-    public function getFirstname()
+    /**
+     * @return mixed
+     */
+    public function getFirstName()
     {
-        return $this->getValueByKey($this->response, 'firstname', '');
+        return $this->getValueByKey($this->response, 'first_name', '');
     }
 
-    public function getLastname()
+    /**
+     * @return mixed
+     */
+    public function getLastName()
     {
-        return $this->getValueByKey($this->response, 'lastname', '');
+        return $this->getValueByKey($this->response, 'last_name', '');
     }
 
+    /**
+     * @return array
+     */
     public function toArray()
     {
         return $this->response;

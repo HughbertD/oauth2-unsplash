@@ -79,4 +79,12 @@ class Unsplash extends AbstractProvider
     {
         return new UnsplashResourceOwner($response);
     }
+
+    /**
+     * @return string
+     */
+    protected function getScopeSeparator()
+    {
+        return ' ';
+    }
 }

@@ -53,7 +53,7 @@ if (isset($_GET['code']) && !isset($_SESSION['token'])) {
 }
 
 if (isset($_SESSION['token'])) {
-    $user = $provider->getResourceOwner($_SESSION['token']);
+    $user = $provider->getResourceOwner(new League\OAuth2\Client\Token\AccessToken(['access_token' => $_SESSION['token']]));
     printf('Hello %s!', $user->getName());
     return;
 }
